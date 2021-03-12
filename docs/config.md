@@ -2,7 +2,7 @@
 layout: default
 title: Configuration
 nav_order: 40
---- 
+---
 
 # Configuration
 
@@ -11,8 +11,8 @@ The Direktiv server can be provided a configuration file on startup (`-c /conf.t
 The following flags instruct the server to run certain components (any combination of the three flags may be provided):
 
 ```
--i    Enables the 'Isolates' server component 
--w    Enables the 'Workflow' server component 
+-i    Enables the 'Isolates' server component
+-w    Enables the 'Workflow' server component
 -s    Enables the 'Secrets' server component
 ```
 
@@ -62,9 +62,6 @@ The following flags instruct the server to run certain components (any combinati
   Endpoint = "localhost:9999"
   Isolation = "vorteil" # or "container"
 
-[quotasAPI]
-  Endpoint = ""
-
 [secretsAPI]
   Bind = ":9999"
   DB = "host=127.0.0.1 port=5432 user=postgres password=example sslmode=disable"
@@ -75,8 +72,8 @@ The following flags instruct the server to run certain components (any combinati
 ## Fields
 
 ### Certs
-- Directory 
-  - Points to an existing directory containing TLS certificate/key files for direktiv server components to establish a secure server/client. Within the directory, an individual folder is expected for each of the following four direktiv server components ('flow', 'ingress', 'isolate', 'secrets'). 
+- Directory
+  - Points to an existing directory containing TLS certificate/key files for direktiv server components to establish a secure server/client. Within the directory, an individual folder is expected for each of the following four direktiv server components ('flow', 'ingress', 'isolate', 'secrets').
   - Files within each component folder are expected to be named:
     - ca.cert
     - ca.key
@@ -87,15 +84,15 @@ The following flags instruct the server to run certain components (any combinati
     - client.req
     - server.key
     - server.pem
-- Secure 
+- Secure
   - Setting to `1` will require that all certs are verifiable. To skip certificate verification, set this field to `0`.
 
-### Database 
+### Database
   - DB
-    - Contains a database 'connection string', used for the direktiv server to establish a connection to a postgres server. 
+    - Contains a database 'connection string', used for the direktiv server to establish a connection to a postgres server.
 
 ### InstanceLogging
-  - Driver 
+  - Driver
     - Currently only supports `database`, which will store logs from instances in the configured database. More drivers will be added over time.
 
 ### Kernel
@@ -109,7 +106,7 @@ The following flags instruct the server to run certain components (any combinati
     - An encryption key used for encrypting/decrypting files.
   - Endpoint
     - Endpoint for Minio API requests to be sent.
-  - User 
+  - User
     - Username for authentication/authorisation purposes.
   - Password
     - Password for authentication/authorisation purposes.
@@ -123,32 +120,32 @@ The following flags instruct the server to run certain components (any combinati
 ### flowAPI
   - Bind
     - Address to bind the flowAPI endpoint running on the direktiv server.
-  - Endpoint 
+  - Endpoint
     - Endpoint to send flowAPI requests to.
   - Registry
-    - Name 
+    - Name
       - Name of the targeted container registry (ie. `docker.io`).
     - User
-      - Username that will be used when authenticating/authorising with the container registry. 
+      - Username that will be used when authenticating/authorising with the container registry.
     - Token
       - Authentication token for the specified user.
 
 ### healthAPI
   - Bind
     - Address to bind the healthAPI endpoint running on the direktiv server.
-  - Endpoint 
+  - Endpoint
     - Endpoint to send healthAPI requests to.
 
 ### ingressAPI
   - Bind
     - Address to bind the ingressAPI endpoint running on the direktiv server.
-  - Endpoint 
+  - Endpoint
     - Endpoint to send ingressAPI requests to.
 
 ### isolateAPI
   - Bind
     - Address to bind the isolateAPI endpoint running on the direktiv server.
-  - Endpoint 
+  - Endpoint
     - Endpoint to send isolateAPI requests to.
   - Isolation
     - Accepts 'vorteil' (runs actions in Vorteil virtual machines) or 'container' (runs actions in containers)
@@ -159,7 +156,7 @@ The following flags instruct the server to run certain components (any combinati
   - Endpoint
     - Endpoint to send secretsAPI requests to.
   - DB
-    - Contains a database 'connection string', used for the direktiv server to establish a connection to a postgres server. 
+    - Contains a database 'connection string', used for the direktiv server to establish a connection to a postgres server.
 
 ## Environment Variable Overrides
 
